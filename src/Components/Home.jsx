@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import {collection, getDocs } from 'firebase/firestore'
 import { db } from '../Config/Firebase'
+import Loading from './Loading'
 
 
 const Home = ({u}) => {
@@ -20,6 +21,7 @@ const Home = ({u}) => {
  })
 
   return (
+    posts?(
     <div className='px-5'>
        <div className=' flex justify-end'>
          {u&&<Link className='px-5 py-1 border-2 border-gray-600 font-semibold mb-6' to={'/newpost'}>NewPost</Link>}
@@ -34,6 +36,7 @@ const Home = ({u}) => {
         </Link>
       ))}
     </div>
+    ):<Loading/>
   )
 }
 
